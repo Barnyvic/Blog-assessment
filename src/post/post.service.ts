@@ -64,6 +64,14 @@ export class PostService {
     try {
       const { created_at, updated_at, ...rest } = data;
 
+      if (!id) {
+        return Return({
+          error: true,
+          statusCode: 404,
+          errorMessage: 'Id must be included',
+        });
+      }
+
       const post = await this.postRepository.findOne({
         where: { id },
         relations: ['author'],
@@ -194,6 +202,14 @@ export class PostService {
 
   async deletePost(id: string, userId: string): Promise<IReturnObject> {
     try {
+      if (!id) {
+        return Return({
+          error: true,
+          statusCode: 404,
+          errorMessage: 'Id must be included',
+        });
+      }
+
       const post = await this.postRepository.findOne({
         where: { id },
         relations: ['author'],
