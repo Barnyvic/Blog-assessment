@@ -1,6 +1,6 @@
 // Create a file named post-query.dto.ts
 
-import { IsOptional, IsNotEmpty, IsInt, Min, MaxLength } from 'class-validator';
+import { IsOptional, IsNotEmpty, IsString } from 'class-validator';
 
 export class PostQueryDto {
   @IsOptional()
@@ -8,10 +8,10 @@ export class PostQueryDto {
   searchQuery: string;
 
   @IsOptional()
-  @Min(1, { message: 'Page must be greater than or equal to 1.' })
+  @IsString()
   page: string;
 
   @IsOptional()
-  @Min(1, { message: 'Page size must be greater than or equal to 1.' })
+  @IsString()
   pageSize: string;
 }
