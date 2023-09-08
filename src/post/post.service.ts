@@ -107,8 +107,8 @@ export class PostService {
     try {
       const { page, pageSize } = queryParams;
 
-      const skip = (page - 1) * pageSize;
-      const take = pageSize;
+      const skip = (Number(page) - 1) * Number(pageSize);
+      const take = Number(pageSize);
 
       let postsQuery = this.postRepository
         .createQueryBuilder('post')

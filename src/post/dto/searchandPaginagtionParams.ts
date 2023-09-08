@@ -8,12 +8,10 @@ export class PostQueryDto {
   searchQuery: string;
 
   @IsOptional()
-  @IsInt({ message: 'Page must be an integer.' })
   @Min(1, { message: 'Page must be greater than or equal to 1.' })
-  page: number;
+  page: string;
 
   @IsOptional()
-  @IsInt({ message: 'Page size must be an integer.' })
   @Min(1, { message: 'Page size must be greater than or equal to 1.' })
-  pageSize: number;
+  pageSize: string;
 }
