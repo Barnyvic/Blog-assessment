@@ -105,7 +105,7 @@ export class PostService {
 
   async getAllPosts(queryParams: PostQueryDto): Promise<IReturnObject> {
     try {
-      const { page = 1, pageSize = 10 } = queryParams;
+      const { page, pageSize } = queryParams;
 
       const skip = (page - 1) * pageSize;
       const take = pageSize;
