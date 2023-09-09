@@ -121,7 +121,8 @@ export class PostService {
       let postsQuery = this.postRepository
         .createQueryBuilder('post')
         .skip(skip)
-        .take(take);
+        .take(take)
+        .orderBy('post.created_at', 'DESC');
 
       if (queryParams.search) {
         postsQuery = postsQuery.where(
