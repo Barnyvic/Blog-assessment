@@ -123,10 +123,10 @@ export class PostService {
         .skip(skip)
         .take(take);
 
-      if (queryParams.searchQuery) {
+      if (queryParams.search) {
         postsQuery = postsQuery.where(
           'post.title LIKE :query OR post.content LIKE :query',
-          { query: `%${queryParams.searchQuery}%` },
+          { query: `%${queryParams.search}%` },
         );
       }
 

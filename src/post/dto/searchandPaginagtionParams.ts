@@ -5,7 +5,7 @@ import { IsOptional, IsNotEmpty, IsString } from 'class-validator';
 export class PostQueryDto {
   @IsOptional()
   @IsNotEmpty({ message: 'Search query cannot be empty.' })
-  searchQuery: string;
+  search: string;
 
   @IsOptional()
   @IsString()
